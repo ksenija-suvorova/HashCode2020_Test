@@ -35,7 +35,7 @@ public class RandomStrategy {
         context.setSizesLeft(onlyUsable(restrictions.getMaxPieces() - context.getSum(), context.getSizesLeft()));
 
         int index = context.getIndexesLeft().get(indexIndex);
-        int size = sizes.getSizes().get(indexIndex);
+        int size = context.getSizesLeft().get(indexIndex);
         context.getPickedIndexes().add(index);
         context.getIndexesLeft().remove(indexIndex);
         context.getSizesLeft().remove(indexIndex);
@@ -53,7 +53,7 @@ public class RandomStrategy {
         if (context.getIndexesLeft().isEmpty()) {
             return UNDEFINED;
         }
-        return new Random().nextInt() % context.getIndexesLeft().size();
+        return Math.abs(new Random().nextInt()) % context.getIndexesLeft().size();
     }
 
     private List<Integer> onlyUsable(int maxPieces, List<Integer> list) {
