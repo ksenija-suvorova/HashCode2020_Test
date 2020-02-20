@@ -28,7 +28,7 @@ public class MaximizerTest {
         System.out.println(sizes);
 
         Maximizer maximizer = new Maximizer();
-        maximizer.run(restrictions, sizes, 1000);
+        maximizer.run(restrictions, sizes, 10);
 
     }
 }

@@ -18,15 +18,12 @@ public class Engine {
         list = cutOffUnusable(restrictions.getMaxPieces(), list);
         Sizes cutOffSizes = new Sizes(list);
 
-
-        RandomStrategy strategy = new RandomStrategy(restrictions, sizes);
+        RandomStrategy strategy = new RandomStrategy(restrictions, cutOffSizes);
 
         Context context = strategy.search();
         System.out.println("============Result==============");
         System.out.println("sum=" + context.getSum() + "\n" +  context.getPickedIndexes());
         System.out.println("context=" + context);
-
-        Set<Integer> resultIndexes = new HashSet<>();
 
         List<Integer> resultList = new ArrayList<>(context.getPickedIndexes());
 
